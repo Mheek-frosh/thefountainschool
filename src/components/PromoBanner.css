@@ -1,0 +1,47 @@
+/* PromoBanner.css */
+.promo-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--color-primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.marquee {
+  flex: 1;
+  overflow: hidden;
+}
+
+.marquee-content {
+  display: flex;
+  width: max-content;
+  animation: marquee 15s linear infinite;
+}
+
+.marquee-item {
+  margin-right: 2rem;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.social-links a {
+  color: white;
+  margin-left: 1rem;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: var(--color-secondary);
+}
