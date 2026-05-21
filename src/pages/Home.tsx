@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, BookOpen, Users, Trophy, Globe, Award, Heart } from 'lucide-react';
+import { ArrowRight, BookOpen, Users, Trophy, Globe, Award, Heart, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PromoBanner from '../components/PromoBanner';
 import './Home.css';
@@ -13,6 +13,7 @@ const HERO_IMAGES = [
 
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -35,7 +36,7 @@ const Home = () => {
     <div className="home">
       <PromoBanner />
       
-      {/* Hero Section with Carousel */}
+      {/* Hero Section with Carousel & Indicators */}
       <section className="hero">
         <div className="hero-bg">
           <AnimatePresence mode="wait">
@@ -76,7 +77,77 @@ const Home = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* Carousel Indicators */}
+        <div className="carousel-indicators">
+          {HERO_IMAGES.map((_, index) => (
+            <button
+              key={index}
+              className={`indicator-dot ${index === currentImageIndex ? 'active' : ''}`}
+              onClick={() => setCurrentImageIndex(index)}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
       </section>
+
+      {/* Video Section: Watch Our Story */}
+      <section className="section video-section bg-surface">
+        <div className="container">
+          <div className="video-header" style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <h2 className="section-title">Watch Our Story: How Leaders Are Built</h2>
+            <p style={{ color: '#475569', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>
+              Take a glimpse into the daily lives of our students and see how we foster a culture of excellence, curiosity, and leadership.
+            </p>
+          </div>
+
+          <div className="video-thumbnail-container" onClick={() => setIsVideoModalOpen(true)}>
+            <img 
+              src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=2000" 
+              alt="Video Thumbnail" 
+              className="video-thumbnail" 
+            />
+            <div className="video-overlay">
+              <div className="play-button">
+                <Play size={40} fill="currentColor" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {isVideoModalOpen && (
+          <motion.div 
+            className="video-modal-backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsVideoModalOpen(false)}
+          >
+            <motion.div 
+              className="video-modal-content"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button className="close-video-btn" onClick={() => setIsVideoModalOpen(false)}>×</button>
+              {/* Placeholder Video */}
+              <iframe 
+                width="100%" 
+                height="100%" 
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" 
+                title="School Video" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowFullScreen
+              ></iframe>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Features Section */}
       <section className="section features">
