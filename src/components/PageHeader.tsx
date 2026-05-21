@@ -23,7 +23,7 @@ const PageHeader = ({ title, bgImage }: { title: string, bgImage: string }) => (
     <motion.h1 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      style={{ position: 'relative', zIndex: 1, fontSize: '3rem', margin: 0 }}
+      style={{ position: 'relative', zIndex: 1, fontSize: 'clamp(2rem, 5vw, 3rem)', margin: 0 }}
     >
       {title}
     </motion.h1>

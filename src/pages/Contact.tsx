@@ -40,7 +40,7 @@ const Contact = () => {
               <input type="email" placeholder="Email Address" style={{ padding: '1rem', borderRadius: '4px', border: '1px solid #cbd5e1', fontSize: '1rem', outline: 'none' }} />
               <input type="text" placeholder="Subject" style={{ padding: '1rem', borderRadius: '4px', border: '1px solid #cbd5e1', fontSize: '1rem', outline: 'none' }} />
               <textarea placeholder="Write your message here..." rows={6} style={{ padding: '1rem', borderRadius: '4px', border: '1px solid #cbd5e1', fontSize: '1rem', outline: 'none', resize: 'vertical' }}></textarea>
-              <button type="button" className="btn btn-primary btn-large" style={{ marginTop: '1rem', width: 'fit-content' }}>
+              <button type="button" className="btn btn-primary btn-large" style={{ marginTop: '1rem', width: '100%', maxWidth: '280px' }}>
                 Send Message <Send size={18} />
               </button>
             </form>

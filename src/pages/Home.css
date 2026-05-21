@@ -375,10 +375,55 @@
   
   .curriculum-images { height: 400px; }
 
-  .stats-grid { grid-template-columns: 1fr !important; }
+  .hero-split {
+    min-height: auto;
+    padding: 4rem 0 3rem;
+  }
+
+  .hero-split-images {
+    height: auto;
+  }
+
+  .hero-img-main,
+  .hero-img-overlay-1,
+  .hero-img-overlay-2 {
+    position: static;
+    width: 100%;
+    height: auto;
+    transform: none;
+    border: none;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  }
+
+  .hero-img-main {
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-img-overlay-1,
+  .hero-img-overlay-2 {
+    display: none;
+  }
+
+  .curriculum-images {
+    position: static;
+    height: auto;
+  }
+
+  .curr-img-1,
+  .curr-img-2 {
+    position: static;
+    width: 100%;
+    height: auto;
+    border: none;
+    margin-bottom: 1.5rem;
+  }
 
   .cta-actions { flex-direction: column; }
   .cta-box h2 { font-size: 2rem; }
+
+  .video-thumbnail-container {
+    width: 100%;
+  }
 
   /* Ensure grids become single columns */
   .grid-cols-2, .grid-cols-3 {

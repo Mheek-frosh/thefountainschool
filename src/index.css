@@ -142,6 +142,51 @@ a {
 .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
 .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
 
+.bg-surface {
+  background: var(--color-surface);
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 3vw, 2.5rem);
+  }
+}
+
 @media (max-width: 768px) {
   .grid-cols-2, .grid-cols-3 { grid-template-columns: repeat(1, 1fr); }
+
+  .section {
+    padding: 2rem 0;
+  }
+
+  .btn, .btn-large {
+    width: 100%;
+  }
+
+  .btn-large {
+    justify-content: center;
+  }
+
+  .text-center-mobile {
+    text-align: center;
+  }
 }
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: clamp(1.75rem, 5vw, 2rem);
+  }
+
+  .container {
+    padding: 0 0.75rem;
+  }
+}
+
