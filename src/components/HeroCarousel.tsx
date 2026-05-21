@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import excellenceImage from '../assets/image.png';
 import './HeroCarousel.css';
 
 const images = [
   "https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg?auto=compress&cs=tinysrgb&w=1200",
   "https://images.pexels.com/photos/256494/pexels-photo-256494.jpeg?auto=compress&cs=tinysrgb&w=1200",
-  "https://images.pexels.com/photos/4144172/pexels-photo-4144172.jpeg?auto=compress&cs=tinysrgb&w=1200"
+  excellenceImage
 ];
 
 const heroTexts = [
