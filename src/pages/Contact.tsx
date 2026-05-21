@@ -54,13 +54,14 @@ const Contact = () => {
             style={{ position: 'relative', minHeight: 'clamp(300px, 60vh, 600px)' }}
           >
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.2528000654!2d-74.14483017232236!3d40.69763123330689!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1716301234567!5m2!1sen!2s" 
+              src="https://www.google.com/maps?q=Fountain+School,+Kabusa,+Abuja&output=embed" 
               width="100%" 
               height="100%" 
               style={{ border: 0, position: 'absolute', top: 0, left: 0 }} 
               allowFullScreen={true} 
               loading="lazy" 
               referrerPolicy="no-referrer-when-downgrade"
+              title="Fountain School Kabusa Abuja map"
             ></iframe>
             
             {/* Contact Info Overlay Panel */}

@@ -3,6 +3,7 @@ import { Outlet, useSearchParams } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import ApplyModal from './ApplyModal';
+import ChatWidget from './ChatWidget';
 
 const Layout = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -21,6 +22,7 @@ const Layout = () => {
       </main>
       <Footer />
       <ApplyModal isOpen={showApplyModal} onClose={closeApplyModal} />
+      <ChatWidget />
     </div>
   );
 };

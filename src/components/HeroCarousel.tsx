@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 import './HeroCarousel.css';
 
 const images = [
-  "https://images.unsplash.com/photo-1427504494785-cdedca539fb4?auto=format&fit=crop&q=80&w=1200",
-  "https://images.unsplash.com/photo-1594896369667-f88e850fa9ab?auto=format&fit=crop&q=80&w=1200",
-  "https://images.unsplash.com/photo-1426604342505-e6c6afcb1c28?auto=format&fit=crop&q=80&w=1200"
+  "https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  "https://images.pexels.com/photos/256494/pexels-photo-256494.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  "https://images.pexels.com/photos/4144172/pexels-photo-4144172.jpeg?auto=compress&cs=tinysrgb&w=1200"
 ];
 
 const heroTexts = [
