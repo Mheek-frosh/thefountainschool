@@ -1,26 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, BookOpen, Users, Trophy, Globe, Award, Heart, Play } from 'lucide-react';
+import { ArrowRight, BookOpen, Users, Trophy, Globe, Award, Heart, Play, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PromoBanner from '../components/PromoBanner';
+import HeroSplit from '../components/HeroSplit';
 import './Home.css';
 
-const HERO_IMAGES = [
-  "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=2000",
-  "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=2000",
-  "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=2000"
-];
-
 const Home = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % HERO_IMAGES.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
 
   const fadeInUp = {
     initial: { opacity: 0, y: 30 },
@@ -36,58 +23,58 @@ const Home = () => {
     <div className="home">
       <PromoBanner />
       
-      {/* Hero Section with Carousel & Indicators */}
-      <section className="hero">
-        <div className="hero-bg">
-          <AnimatePresence mode="wait">
-            <motion.img 
-              key={currentImageIndex}
-              src={HERO_IMAGES[currentImageIndex]}
-              initial={{ opacity: 0, scale: 1.05 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1.2 }}
-              alt="School Campus" 
-              style={{ position: 'absolute', width: '100%', height: '100%', objectFit: 'cover' }}
-            />
-          </AnimatePresence>
-          <div className="hero-overlay"></div>
-        </div>
-        
-        <div className="container hero-content">
+      {/* Redesigned Split Hero Section */}
+      <section className="hero-split">
+        <div className="container hero-split-container">
+          
+          {/* Left Text Content */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="hero-text"
+            transition={{ duration: 0.8 }}
+            className="hero-split-text"
           >
             <span className="hero-badge">Welcome to Excellence</span>
             <h1 className="hero-title">Shaping Tomorrow's Leaders Today.</h1>
             <p className="hero-desc">
               The Fountain School offers a world-class education rooted in tradition, 
-              driven by innovation, and committed to developing well-rounded individuals.
+              driven by innovation, and committed to developing well-rounded individuals. 
+              Join a community where every child's potential is unlocked.
             </p>
             <div className="hero-actions">
               <Link to="?apply=true" className="btn btn-accent btn-large">
                 Apply Now <ArrowRight size={20} />
               </Link>
-              <Link to="/about/history" className="btn btn-outline-white btn-large">
+              <Link to="/about/history" className="btn btn-outline btn-large">
                 Discover Our History
               </Link>
             </div>
           </motion.div>
-        </div>
 
-        {/* Carousel Indicators */}
-        <div className="carousel-indicators">
-          {HERO_IMAGES.map((_, index) => (
-            <button
-              key={index}
-              className={`indicator-dot ${index === currentImageIndex ? 'active' : ''}`}
-              onClick={() => setCurrentImageIndex(index)}
-              aria-label={`Go to slide ${index + 1}`}
+          {/* Right Image Composition */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="hero-split-images"
+          >
+            <img 
+              src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800" 
+              alt="School Campus" 
+              className="hero-img-main"
             />
-          ))}
+            <img 
+              src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=800" 
+              alt="Students" 
+              className="hero-img-overlay-1"
+            />
+            <img 
+              src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=800" 
+              alt="Classroom" 
+              className="hero-img-overlay-2"
+            />
+          </motion.div>
+
         </div>
       </section>
 
@@ -103,7 +90,7 @@ const Home = () => {
 
           <div className="video-thumbnail-container" onClick={() => setIsVideoModalOpen(true)}>
             <img 
-              src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=2000" 
+              src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=2000" 
               alt="Video Thumbnail" 
               className="video-thumbnail" 
             />
@@ -134,7 +121,6 @@ const Home = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <button className="close-video-btn" onClick={() => setIsVideoModalOpen(false)}>×</button>
-              {/* Placeholder Video */}
               <iframe 
                 width="100%" 
                 height="100%" 
@@ -149,8 +135,33 @@ const Home = () => {
         )}
       </AnimatePresence>
 
+      {/* NEW: Curriculum Highlights Section */}
+      <section className="section">
+        <div className="container">
+          <div className="curriculum-split">
+            <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+              <h2 className="section-title" style={{ textAlign: 'left' }}>A Curriculum Designed for the Future</h2>
+              <p style={{ fontSize: '1.125rem', color: '#475569', marginBottom: '2rem' }}>
+                We don't just teach facts; we teach students how to think. Our globally recognized curriculum ensures that every child receives a well-rounded education.
+              </p>
+              <ul className="curriculum-list">
+                <li><CheckCircle size={20} className="text-secondary" /> Project-Based Learning Approaches</li>
+                <li><CheckCircle size={20} className="text-secondary" /> Advanced STEM and Robotics Labs</li>
+                <li><CheckCircle size={20} className="text-secondary" /> Comprehensive Arts & Humanities</li>
+                <li><CheckCircle size={20} className="text-secondary" /> Personal Character Development</li>
+              </ul>
+              <Link to="/academics" className="btn btn-primary mt-4">Discover Our Academics</Link>
+            </motion.div>
+            <motion.div className="curriculum-images" initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+              <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800" alt="Learning" className="curr-img-1" />
+              <img src="https://images.unsplash.com/photo-1544396821-4dd40b938ad3?auto=format&fit=crop&q=80&w=800" alt="Activities" className="curr-img-2" />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
-      <section className="section features">
+      <section className="section features bg-surface">
         <div className="container">
           <motion.h2 
             className="section-title"
@@ -208,7 +219,7 @@ const Home = () => {
       {/* Stats Section */}
       <section className="section" style={{ background: 'var(--color-primary)', color: 'white' }}>
         <div className="container">
-          <div className="grid grid-cols-3" style={{ textAlign: 'center', gap: '2rem' }}>
+          <div className="grid grid-cols-3 stats-grid" style={{ textAlign: 'center', gap: '2rem' }}>
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
               <Globe size={48} style={{ color: 'var(--color-secondary)', margin: '0 auto 1rem auto' }} />
               <h3 style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>30+</h3>
@@ -223,55 +234,6 @@ const Home = () => {
               <Heart size={48} style={{ color: 'var(--color-secondary)', margin: '0 auto 1rem auto' }} />
               <h3 style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>1:8</h3>
               <p style={{ fontSize: '1.2rem', color: 'rgba(255,255,255,0.8)' }}>Teacher to Student Ratio</p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Image Gallery / Showcase Section */}
-      <section className="section showcase bg-surface">
-        <div className="container">
-          <div className="showcase-grid">
-            <motion.div 
-              className="showcase-text"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2>Empowering Minds, Inspiring Futures</h2>
-              <p>
-                Our modern classrooms and dedicated faculty ensure that students 
-                receive personalized attention. We believe in learning by doing, 
-                equipping our students with the skills they need for the 21st century.
-              </p>
-              <ul style={{ listStyle: 'none', marginBottom: '2rem', color: '#475569' }}>
-                <li style={{ marginBottom: '0.5rem' }}>✓ State of the art science labs</li>
-                <li style={{ marginBottom: '0.5rem' }}>✓ Comprehensive sports facilities</li>
-                <li style={{ marginBottom: '0.5rem' }}>✓ Global curriculum standards</li>
-              </ul>
-              <Link to="/academics" className="btn btn-primary mt-4">
-                Explore Academics <ArrowRight size={18} />
-              </Link>
-            </motion.div>
-            
-            <motion.div 
-              className="showcase-images"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <img 
-                src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=1000" 
-                alt="Classroom" 
-                className="showcase-img img-main"
-              />
-              <img 
-                src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=1000" 
-                alt="Students" 
-                className="showcase-img img-float glass-dark"
-              />
             </motion.div>
           </div>
         </div>
