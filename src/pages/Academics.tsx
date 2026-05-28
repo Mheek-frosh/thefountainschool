@@ -1,3 +1,4 @@
+/* Page: Academics - details academic programs and curriculum levels */
 import PageHeader from '../components/PageHeader';
 import PromoBanner from '../components/PromoBanner';
 import { motion } from 'framer-motion';

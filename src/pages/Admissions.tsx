@@ -1,4 +1,5 @@
 
+/* Page: Admissions - admissions process overview and next steps */
 import PageHeader from '../components/PageHeader';
 
 const Admissions = () => {

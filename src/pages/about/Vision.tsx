@@ -1,3 +1,4 @@
+/* Page: Vision - vision and mission overview */
 import PageHeader from '../../components/PageHeader';
 import PromoBanner from '../../components/PromoBanner';
 import { motion } from 'framer-motion';

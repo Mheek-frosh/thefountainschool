@@ -1,3 +1,4 @@
+/* Page: Leadership - leadership team profiles */
 import PageHeader from '../../components/PageHeader';
 import PromoBanner from '../../components/PromoBanner';
 import { motion } from 'framer-motion';

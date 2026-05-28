@@ -1,3 +1,4 @@
+/* Page: Contact - contact form and location information */
 import PageHeader from '../components/PageHeader';
 import { MapPin, Phone, Mail, Send } from 'lucide-react';
 import { motion } from 'framer-motion';

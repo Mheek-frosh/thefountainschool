@@ -1,4 +1,5 @@
 
+/* Page: ApplicationForm - student application form page */
 import PageHeader from '../components/PageHeader';
 import { motion } from 'framer-motion';
 

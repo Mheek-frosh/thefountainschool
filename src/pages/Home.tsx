@@ -1,3 +1,4 @@
+/* Page: Home - main landing page with hero, features, and admissions call to action */
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BookOpen, Users, Trophy, Play, CheckCircle } from 'lucide-react';
