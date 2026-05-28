@@ -35,6 +35,37 @@
   margin-bottom: 1.5rem;
 }
 
+.newsletter-block {
+  margin-top: 2rem;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.newsletter-input {
+  flex: 1 1 220px;
+  min-width: 0;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+.newsletter-btn {
+  padding: 0.9rem 1.4rem;
+}
+
+.newsletter-success {
+  margin-top: 1rem;
+  color: rgba(223, 255, 223, 0.95);
+  font-size: 0.95rem;
+}
+
 .social-links {
   display: flex;
   gap: 1rem;

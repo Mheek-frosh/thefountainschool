@@ -267,6 +267,37 @@
   border: 1px solid rgba(0,0,0,0.05);
 }
 
+.testimonial-grid {
+  gap: 2rem;
+}
+
+.testimonial-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 15px 38px rgba(3, 49, 113, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.testimonial-quote {
+  color: #475569;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.testimonial-author {
+  margin-top: auto;
+}
+
+.testimonial-role {
+  display: block;
+  margin-top: 0.5rem;
+  color: #64748b;
+}
+
 .feature-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(3, 49, 113, 0.1);

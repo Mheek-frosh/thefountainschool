@@ -108,6 +108,57 @@ const Home = () => {
         </div>
       </section>
 
+      <section className="section testimonials">
+        <div className="container">
+          <motion.h2
+            className="section-title"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            What Families Say
+          </motion.h2>
+          <motion.div
+            className="grid grid-cols-3 testimonial-grid"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={stagger}
+          >
+            <motion.div className="testimonial-card" variants={fadeInUp}>
+              <p className="testimonial-quote">
+                “The Fountain School has given our child the confidence to explore new ideas and shine academically. The teachers are caring, inspiring, and deeply committed.”
+              </p>
+              <div className="testimonial-author">
+                <strong>Mrs. Amina Yusuf</strong>
+                <span className="testimonial-role">Parent, Grade 4 Student</span>
+              </div>
+            </motion.div>
+
+            <motion.div className="testimonial-card" variants={fadeInUp}>
+              <p className="testimonial-quote">
+                “I love the hands-on learning and exciting after-school programs. Every day brings something new and meaningful.”
+              </p>
+              <div className="testimonial-author">
+                <strong>David Olajide</strong>
+                <span className="testimonial-role">Student, Grade 9</span>
+              </div>
+            </motion.div>
+
+            <motion.div className="testimonial-card" variants={fadeInUp}>
+              <p className="testimonial-quote">
+                “The Fountain School is more than a campus — it’s a community that welcomes every family and supports every dream.”
+              </p>
+              <div className="testimonial-author">
+                <strong>Mrs. Grace Emeka</strong>
+                <span className="testimonial-role">Parent, Early Years</span>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Video Section: Watch Our Story */}
       <section className="section video-section bg-surface">
         <div className="container">

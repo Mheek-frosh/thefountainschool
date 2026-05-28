@@ -1,9 +1,14 @@
 
 /* Page: ApplicationForm - student application form page */
+import { FormEvent } from 'react';
 import PageHeader from '../components/PageHeader';
 import { motion } from 'framer-motion';
 
 const ApplicationForm = () => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+  };
+
   return (
     <div>
       <PageHeader 
@@ -20,7 +25,7 @@ const ApplicationForm = () => {
             <h2 style={{ color: 'var(--color-primary)', marginBottom: '1rem', textAlign: 'center' }}>Student Application</h2>
             <p style={{ textAlign: 'center', color: '#64748b', marginBottom: '2.5rem' }}>Please fill out all required fields to begin the admission process.</p>
             
-            <form style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               <div className="grid grid-cols-2">
                 <div>
                   <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 500 }}>First Name *</label>
@@ -48,6 +53,27 @@ const ApplicationForm = () => {
                 </select>
               </div>
 
+              <div className="grid grid-cols-2">
+                <div>
+                  <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 500 }}>Preferred Start Term *</label>
+                  <select style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid #cbd5e1' }} required>
+                    <option value="">Select Term</option>
+                    <option value="august_2025">August 2025</option>
+                    <option value="january_2026">January 2026</option>
+                  </select>
+                </div>
+                <div>
+                  <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 500 }}>How Did You Hear About Us?</label>
+                  <select style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid #cbd5e1' }}>
+                    <option value="">Choose an option</option>
+                    <option value="online_search">Online Search</option>
+                    <option value="friend_family">Friend / Family</option>
+                    <option value="social_media">Social Media</option>
+                    <option value="event">School Event</option>
+                  </select>
+                </div>
+              </div>
+
               <div>
                 <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 500 }}>Parent/Guardian Email *</label>
                 <input type="email" style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid #cbd5e1' }} required />
@@ -63,7 +89,7 @@ const ApplicationForm = () => {
                 <textarea rows={4} style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid #cbd5e1' }}></textarea>
               </div>
 
-              <button type="button" className="btn btn-accent btn-large" style={{ marginTop: '1rem' }}>
+              <button type="submit" className="btn btn-accent btn-large" style={{ marginTop: '1rem' }}>
                 Submit Application
               </button>
             </form>

@@ -1,6 +1,8 @@
 
 /* Page: Admissions - admissions process overview and next steps */
+import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader';
+import { motion } from 'framer-motion';
 
 const Admissions = () => {
   return (
@@ -26,8 +28,39 @@ const Admissions = () => {
               <li><strong>Step 5:</strong> Receive your admissions decision.</li>
             </ol>
             <br />
-            <button className="btn btn-accent" style={{ marginTop: '2rem' }}>Start Application Now</button>
+            <Link to="/application-form" className="btn btn-accent" style={{ marginTop: '2rem' }}>Start Application Now</Link>
           </div>
+        </div>
+
+        <div style={{ maxWidth: '1080px', margin: '4rem auto 0', display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '2rem' }}>
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            viewport={{ once: true }} 
+            style={{ background: 'white', padding: '2.5rem', borderRadius: '16px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}
+          >
+            <h3 style={{ color: 'var(--color-primary)', marginBottom: '1rem' }}>Important Dates</h3>
+            <ul style={{ listStyle: 'none', padding: 0, lineHeight: 2, color: '#475569' }}>
+              <li><strong>Open House:</strong> June 12, 2025</li>
+              <li><strong>Application Deadline:</strong> July 31, 2025</li>
+              <li><strong>Interview Window:</strong> August 5–22, 2025</li>
+              <li><strong>Offer Letters Sent:</strong> September 5, 2025</li>
+            </ul>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            viewport={{ once: true }} 
+            style={{ background: 'white', padding: '2.5rem', borderRadius: '16px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}
+          >
+            <h3 style={{ color: 'var(--color-primary)', marginBottom: '1rem' }}>Admissions FAQ</h3>
+            <div style={{ lineHeight: 1.8, color: '#475569' }}>
+              <p><strong>Q:</strong> What documents are required for the application?<br /><strong>A:</strong> Birth certificate, previous school report, passport photo, and guardian contact details.</p>
+              <p><strong>Q:</strong> Can I schedule a campus tour?<br /><strong>A:</strong> Yes. Our admissions team is happy to arrange a personalized campus visit.</p>
+              <p><strong>Q:</strong> Is transportation available?<br /><strong>A:</strong> Yes, we offer a safe school bus service across the city.</p>
+            </div>
+          </motion.div>
         </div>
       </div>
     </div>

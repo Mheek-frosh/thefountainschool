@@ -1,4 +1,5 @@
 
+import { useState, FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpen, MapPin, Phone, Mail } from 'lucide-react';
 import './Footer.css';
@@ -25,6 +26,16 @@ const InstagramIcon = () => (
 );
 
 const Footer = () => {
+  const [email, setEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubscribe = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!email.trim()) return;
+    setSubscribed(true);
+    setEmail('');
+  };
+
   return (
     <footer className="footer">
       <div className="container">
@@ -47,6 +58,23 @@ const Footer = () => {
               <a href="https://instagram.com/thefountainschool" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram" title="Follow us on Instagram">
                 <InstagramIcon />
               </a>
+            </div>
+
+            <div className="newsletter-block">
+              <h4 className="footer-heading">Stay Informed</h4>
+              <p className="footer-desc">Subscribe for admissions updates, campus news, and important school announcements.</p>
+              <form className="newsletter-form" onSubmit={handleSubscribe}>
+                <input
+                  type="email"
+                  placeholder="Your email address"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
+                  className="newsletter-input"
+                  required
+                />
+                <button type="submit" className="btn btn-accent newsletter-btn">Subscribe</button>
+              </form>
+              {subscribed && <p className="newsletter-success">Thank you! We will share updates with you shortly.</p>}
             </div>
           </div>
 
